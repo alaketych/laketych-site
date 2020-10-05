@@ -1,0 +1,68 @@
+.container
+    margin: 0 auto
+    max-width: 860px
+
+.light-theme
+    color: $background
+    background: #ffffff
+
+.dark-theme
+    color: #ffffff
+    background: $background
+
+.publication
+    height: 100vh
+    font-size: 20px
+    font-family: 'Rubik', sans-serif
+    transition: background .3s ease-in-out, color 0.1s linear
+
+    &__inner
+        display: flex
+        padding: 25px 100px 0px 100px
+        justify-content: space-between
+
+    &__header
+        display: flex
+        flex-direction: column
+
+    &__published-name
+        font-size: 20px
+        font-weight: 400
+
+    &__published-date
+        font-size: 15px
+        font-weight: 100
+
+
+    &__view
+        display: flex
+        flex-direction: column
+
+        padding-top: 30px
+        margin-bottom: 30px
+
+    &__name
+        font-size: 38px
+
+    &__paragraph
+        font-size: 19px
+        margin-top: 24px
+        line-height: 1.5em
+
+    &__link
+        color: $primary
+        display: inline
+        overflow: hidden
+        position: relative
+        text-decoration: none
+
+    &__vision
+        height: 50px
+        width: 100px
+        display: flex
+        align-items: center
+        justify-content: center
+
+        svg
+            &:hover
+                cursor: pointer

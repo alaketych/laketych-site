@@ -1,0 +1,53 @@
+.quote
+    text-align: center
+
+    &__inner
+        position: relative
+        padding-top: 60px
+        padding-bottom: 60px
+
+        &:before
+            top: 0
+
+        &:after
+            bottom: 0
+
+        &:before, &::after
+            left: 50%
+            width: 60px
+            height: 6px
+            content: ""
+            position: absolute
+            border-radius: 1000px
+            background: $primary
+            transform: translateX(-50%)
+
+    &__txt
+        font-size: 48px
+        font-weight: 300
+        line-height: 135%
+        color: $background
+
+    &__meta
+        display: flex
+        text-align: center
+        align-items: center
+        flex-direction: column
+        margin-top: 80px
+        font-style: normal
+
+    &__avatar
+        width: 7%
+        border-radius: 50%
+
+    &__client-name
+        font-size: 24px
+        font-weight: 500
+
+    &__client-company
+        font-size: 24px
+        font-weight: 400
+
+        .link
+            color: $primary
+            font-weight: 100

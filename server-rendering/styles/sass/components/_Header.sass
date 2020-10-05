@@ -1,0 +1,29 @@
+.header
+    padding: 60px 0px
+
+    .link
+        color: $gray
+        font-size: 22px
+        position: relative
+        transition: all .2s
+        text-decoration: none
+
+        &:after
+            content: ''
+            position: absolute
+            width: 0px
+            bottom: -10px
+            margin: 0 auto
+            left: 15%
+            opacity: 0
+            height: 5px
+            border-radius: 5px
+            background-color: #ff8000
+            transition: opacity .9s ease
+
+        &:hover::after
+            width: 70%
+            opacity: 100%
+
+        &:hover
+            color: $white
