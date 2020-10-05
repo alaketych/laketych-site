@@ -36,6 +36,11 @@ function Project({ className }) {
                             className="foreground"
                             label="View Details"
                         />
+
+                        <Button
+                            className="foreground"
+                            label="View Code"
+                        />
                     </div>
                 </div>
             </div>
