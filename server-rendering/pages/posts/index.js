@@ -1,11 +1,11 @@
 
 import React from 'react'
-import fetch from 'isomorphic-unfetch'
-import photo from '../assets/images/g.webp'
-import { PageTitle, Article } from '../components/_index'
+import { getPosts } from '../api/controllers/fetching'
+import photo from '../../assets/images/g.webp'
+import { PageTitle, Article } from '../../components/_index'
+import Link from 'next/link'
 
-function Blog({ props }) {
-    console.warn(props)
+function Blog({ posts }) {
     return (
         <div className="App">
             <PageTitle
@@ -19,6 +19,17 @@ function Blog({ props }) {
                     <div className="divider"></div>
 
                     <div className="array wrap small-spacing">
+                        {
+                            posts.map(object => {
+                                return (
+                                    <Article
+                                        key={object.id}
+                                        article={object.title}
+                                        textPreview={object.body}
+                                    />
+                                )
+                            })
+                        }
                         {/* <Article
                             photo={ photo }
                             article="Building GraqhQL server"
@@ -50,13 +61,6 @@ function Blog({ props }) {
                             date="25th September, 2020"
                             textPreview="Lorem ipsum dolor sit amet, consectetur adipisicing elit. Veniam, hic eaque. Perferendis, asperiores. Iste omnis architecto modi culpa dicta, hic quasi nihil eius autem earum tempore, corporis commodi, provident fuga?"
                         /> */}
-
-                        {
-                            props.map(post => {
-                                return <li key={post.id}>{ post.employee_name }</li>
-                            })
-                        }
-
                     </div>
                 </div>
             </section>
@@ -64,14 +68,10 @@ function Blog({ props }) {
     )
 }
 
-export async function getStaticProps() {
-    const result = await fetch('http://codeytek.com/wp-json/wp/v2/posts')
-    const postData = await result.json()
-
-    return {
-        props:  postData
-    }
+Blog.getInitialProps = async ({ req }) => {
+    const response = await getPosts()
+    const json = await response.json()
+    return { posts: json }
 }
-
 
 export default Blog

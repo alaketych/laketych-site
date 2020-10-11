@@ -1,7 +1,11 @@
 import React from 'react'
+import dynamic from 'next/dynamic'
+import photo from '../assets/images/2.png'
 import { Banner, Button, Quote, Article, Service, ProjectView } from '../components/_index'
 
-import photo from '../assets/images/2.png'
+dynamic(
+    () => import('@lottiefiles/lottie-player'), { ssr: false }
+)
 
 function Home() {
     return (
@@ -10,7 +14,13 @@ function Home() {
                 title="Hi, I'm Alexandr"
                 description="A web developer from Kyiv, Ukraine. I create bespoke websites to help people go further online.">
 
-
+                <lottie-player
+                    src="https://assets1.lottiefiles.com/private_files/lf30_WdTEui.json"
+                    loop
+                    autoplay
+                    speed="0.75"
+                    renderer="svg"
+                />
             </Banner>
 
             <section className="block huge-spacing">
