@@ -2,7 +2,7 @@ import React from 'react'
 
 function Article({ photo, article, category, date, textPreview }) {
     return (
-        <div className="article">
+        <div className="article ">
             <a href="/" className="article__thumb">
                 <img src={ photo } alt=""/>
             </a>

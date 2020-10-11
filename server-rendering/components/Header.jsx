@@ -31,7 +31,7 @@ function Header() {
                     </li>
 
                     <li className="item">
-                        <Link href='/blog'>
+                        <Link href='/posts'>
                             <a className="link">Blog</a>
                         </Link>
                     </li>

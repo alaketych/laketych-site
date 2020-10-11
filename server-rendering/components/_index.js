@@ -1,3 +1,4 @@
+export { default as SEO } from './SEO'
 export { default as CTA } from './CTA'
 export { default as Header } from './Header'
 export { default as Banner } from './Banner'
@@ -8,4 +9,6 @@ export { default as Service } from './Service'
 export { default as Article } from './Article'
 export { default as PageTitle} from './PageTitle'
 export { default as ProjectView } from './ProjectView'
+
 export { default as ContactingForm } from './ContactingForm'
+export { default as SendingMessage } from './Form/SendingMessage'

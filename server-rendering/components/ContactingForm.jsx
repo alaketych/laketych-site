@@ -35,7 +35,7 @@ function ContactingForm() {
             }}
         >
             {
-                ({ values, touched, errors,
+                ({ values, touched, errors, isValid,
                     handleBlur, isSubmitting,
                     handleChange, handleSubmit }) => (
                         <Form autoComplete="off" onSubmit={ handleSubmit }>
@@ -80,7 +80,7 @@ function ContactingForm() {
                             <Field
                                 id="desc"
                                 as='textarea'
-                                name="description"
+                                name="desc"
                                 value={ values.desc }
                                 className={errors.desc && touched.desc && "error"}
                                 placeholder="Describe your problem or future project."
@@ -93,8 +93,7 @@ function ContactingForm() {
                                 )
                             }
 
-
-                            <button type="submit"className="button foreground center medium-space-top">Send message</button>
+                            <button type="submit" className="button foreground center medium-space-top">Send message</button>
                         </Form>
                 )
             }

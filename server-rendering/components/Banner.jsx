@@ -1,6 +1,6 @@
 import React from 'react'
 
-function Banner({ title, description, children, }) {
+function Banner({ title, description, children }) {
     return (
         <section className="banner dark slanted-bottom huge-padding">
             <div className="wrapper">
