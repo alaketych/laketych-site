@@ -1,23 +1,24 @@
-import next from 'next'
-import express, { Router } from 'express'
-import passport from 'passport'
-import cookieParser from 'cookie-parser'
-import { urlencoded, json } from 'body-parser'
-
-import { Roles } from './pages/api/controllers/roles'
-import { resticted } from './pages/api/controllers/restricted'
-import { route } from 'next/dist/next-server/server/router'
+const express = require('express')
+const next = require('next')
+const routes = require('./routes/index')
 
 const dev = process.env.NODE_ENV !== 'production'
-const nextApp = next({ dev })
-const handle = nextApp.getRequestHandler()
+const app = next({ dev })
+const handle = app.getRequestHandler()
+const handler = routes.getRequestHandler(app)
+const port = 8000
 
-nextApp.prepare()
-    .then(async() => {
-        const app = express()
-        app.use(json())
-        app.use(cookieParser())
-        app.use(passport.initialize())
+app.prepare()
+    .then(() => {
+        const server = express()
+        server.use(handler)
 
+        server.get('*', (request, response) => {
+            handle(request, response)
+        })
 
+        server.listen(port, error => {
+            if(error) throw error
+            console.log(`> Ready on http://localhost:${port}`);
+        })
     })
