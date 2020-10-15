@@ -1,6 +1,9 @@
 import React, { useState } from 'react'
+import { useRouter } from 'next/router'
+import { getPost } from '../api/controllers/fetching'
 
-function Blog() {
+function PostPage({ post }) {
+    const router = useRouter()
     const [darkTheme, setDarkTheme] = useState(false)
 
     return (
@@ -16,17 +19,9 @@ function Blog() {
                     </div>
 
                     <div className="publication__view">
-                        <div className="publication__name">Building GraqhQL server</div>
-                        <p className="publication__paragraph">Lorem ipsum dolor sit amet consectetur adipisicing elit. Nobis laborum alias suscipit accusamus nihil, assumenda quibusdam placeat iusto dicta eligendi animi eius rerum repellat ad aut, laudantium earum libero iure?</p>
-                        <p className="publication__paragraph">Lorem ipsum dolor sit amet consectetur adipisicing elit. Nobis laborum alias suscipit accusamus nihil, assumenda quibusdam placeat iusto dicta eligendi animi eius rerum repellat ad aut, laudantium earum libero iure?</p>
-                        <p className="publication__paragraph">Lorem ipsum dolor sit amet consectetur adipisicing elit. Nobis laborum alias suscipit accusamus nihil, assumenda quibusdam placeat iusto dicta eligendi animi eius rerum repellat ad aut, laudantium earum libero iure?</p>
-                        <p className="publication__paragraph">Lorem ipsum dolor sit amet consectetur adipisicing elit. Nobis laborum alias suscipit accusamus nihil, assumenda quibusdam placeat iusto dicta eligendi animi eius rerum repellat ad aut, laudantium earum libero iure?</p>
-                        <p className="publication__paragraph">Lorem ipsum dolor sit amet consectetur adipisicing elit. Nobis laborum alias suscipit accusamus nihil, assumenda quibusdam placeat iusto dicta eligendi animi eius rerum repellat ad aut, laudantium earum libero iure?</p>
-                        <p className="publication__paragraph">Lorem ipsum dolor sit amet consectetur adipisicing elit. Nobis laborum alias suscipit accusamus nihil, assumenda quibusdam placeat iusto dicta eligendi animi eius rerum repellat ad aut, laudantium earum libero iure?</p>
-                        <p className="publication__paragraph">Lorem ipsum dolor sit amet consectetur adipisicing elit. Nobis laborum alias suscipit accusamus nihil, assumenda quibusdam placeat iusto dicta eligendi animi eius rerum repellat ad aut, laudantium earum libero iure?</p>
-                        <p className="publication__paragraph">Lorem ipsum dolor sit amet consectetur adipisicing elit. Nobis laborum alias suscipit accusamus nihil, assumenda quibusdam placeat iusto dicta eligendi animi eius rerum repellat ad aut, laudantium earum libero iure?</p>
-                        <p className="publication__paragraph">Lorem ipsum dolor sit amet consectetur adipisicing elit. Nobis laborum alias suscipit accusamus nihil, assumenda quibusdam placeat iusto dicta eligendi animi eius rerum repellat ad aut, laudantium earum libero iure?</p>
-                        <a class="publication__link" href="localhost:3000/" target="_blank" rel="noopener noreferrer">интервью</a>
+                        <h3 className="publication__name">{ post.title }</h3>
+                        <p className="publication__paragraph">{ post.body }</p>
+                        <a className="publication__link" href="localhost:3000/" target="_blank" rel="noopener noreferrer">интервью</a>
                     </div>
                 </div>
 
@@ -53,4 +48,10 @@ function Blog() {
     )
 }
 
-export default Blog
+PostPage.getInitialProps = async ({ query }) => {
+    const res = await getPost(query.post)
+    const json = await res.json()
+    return { post: json[0] }
+}
+
+export default PostPage

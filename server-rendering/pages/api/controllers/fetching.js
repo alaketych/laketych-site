@@ -5,5 +5,6 @@ export function getPosts() {
 }
 
 export function getPost(slug) {
-    return fetch(`https://jsonplaceholder.typicode.com/posts?title=${slug}`)
+    return fetch(`https://jsonplaceholder.typicode.com/posts?id=${slug}`)
+    //return fetch(`https://jsonplaceholder.typicode.com/posts?id=9`)
 }
