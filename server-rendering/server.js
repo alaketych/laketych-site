@@ -1,24 +1,14 @@
-const express = require('express')
-const next = require('next')
-const routes = require('./routes/index')
-
-const dev = process.env.NODE_ENV !== 'production'
-const app = next({ dev })
-const handle = app.getRequestHandler()
-const handler = routes.getRequestHandler(app)
 const port = 8000
+const express = require('express')
+const server = express()
 
-app.prepare()
-    .then(() => {
-        const server = express()
-        server.use(handler)
+const posts = require('./routes/posts')
+const projects = require('./routes/projects')
 
-        server.get('*', (request, response) => {
-            handle(request, response)
-        })
+server.use('/posts', posts)
+server.use('/projects', projects)
 
-        server.listen(port, error => {
-            if(error) throw error
-            console.log(`> Ready on http://localhost:${port}`);
-        })
-    })
+server.listen(port, error => {
+    if(error) throw error
+    console.log(`> Ready on http://localhost:${port}`);
+})
