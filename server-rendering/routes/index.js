@@ -1,5 +1,6 @@
-const nextRoutes = require('next-routes')
-const route = module.exports = nextRoutes()
+const express = require('express')
+const database = require('../pages/api/controllers/database')
 
-route.add('posts', '/posts')
-route.add('post', '/posts/:slug')
+const router = express.Router()
+
+module.exports = { router, database }
