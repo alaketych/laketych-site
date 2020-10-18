@@ -35,10 +35,21 @@ function Posts({ posts }) {
     )
 }
 
-Posts.getInitialProps = async ({ req }) => {
+export async function getStaticProps() {
     const response = await getPosts()
     const json = await response.json()
-    return { posts: json }
+
+    return {
+        props: {
+            posts: json
+        }
+    }
 }
+
+// Posts.getInitialProps = async ({ req }) => {
+//     const response = await getPosts()
+//     const json = await response.json()
+//     return { posts: json }
+// }
 
 export default Posts

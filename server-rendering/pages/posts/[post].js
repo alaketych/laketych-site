@@ -48,10 +48,16 @@ function PostPage({ post }) {
     )
 }
 
-PostPage.getInitialProps = async ({ query }) => {
-    const res = await getPost(query.post)
-    const json = await res.json()
-    return { post: json[0] }
+export async function getServerSideProps({ query }) {
+    const response = await getPost(query.post)
+    const json = await response.json()
+
+    return {
+        props: {
+            post: json[0]
+        }
+    }
 }
+
 
 export default PostPage
