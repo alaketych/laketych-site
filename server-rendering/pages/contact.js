@@ -11,13 +11,14 @@ function Contact() {
 
             <section className="block huge-spacing">
                 <div className="wrapper">
+                    <div className="array">
                     <Service
                         className="huge-spacing"
                         title="Available"
                         description="I’m currently taking on new projects!"
                     />
 
-                    <ContactingForm />
+                    <ContactingForm /></div>
                 </div>
             </section>
         </div>
