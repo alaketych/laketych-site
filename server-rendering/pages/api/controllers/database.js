@@ -1,15 +1,21 @@
-const mysql = require('mysql')
+const mysql = require('serverless-mysql')
 
-const connection = mysql.createConnection({
-    host: 'localhost',
-    user: 'root',
-    password: 'gzb8f1',
-    database: 'laketychblog'
+const connection = mysql({
+    config: {
+        host: process.env.MYSQL_USER,
+        user: process.env.MYSQL_HOST,
+        password: process.env.MYSQL_PASSWORD,
+        database: process.env.MYSQL_DATABASE,
+    }
 })
 
-connection.connect(error => {
-    if(error) throw error
-    console.log('Connected to the MySQL server.')
-})
-
-module.exports = connection
+exports.query = async(query) => {
+    try {
+        const results = await connection.query(query)
+        await connection.end()
+        return results
+    }
+    catch(error) {
+        return { error }
+    }
+}
