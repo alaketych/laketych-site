@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from '../routes/index'
 
 function Article({ photo, article, category, date, textPreview }) {
     return (
@@ -20,5 +21,20 @@ function Article({ photo, article, category, date, textPreview }) {
         </div>
     )
 }
+
+// function Article({ post }) {
+//     return (
+//         <div className="article ">
+//             <div className="article__inner">
+//                 <Link route='post' params={{ slug: post.id}}>
+//                     <a href="/" className="article__title">{ post.title }</a>
+//                 </Link>
+//                 <p className="article__description">
+//                     <a className="article__category" href="/">{ post.body }</a>
+//                 </p>
+//             </div>
+//         </div>
+//     )
+// }
 
 export default Article
