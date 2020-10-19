@@ -7,5 +7,5 @@ export default async(request, response) => {
     where id = ${ request.query.id }
   `)
 
-  response.status(200).json({ post })
+  response.status(200).json(post)
 }
