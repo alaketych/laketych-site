@@ -2,15 +2,10 @@ const mysql = require('serverless-mysql')
 
 const connection = mysql({
     config: {
-        host: 'localhost',
-        user: 'root',
-        password: 'gzb8f1',
-        database: 'laketychblog'
-
-        // host: process.env.MYSQL_USER,
-        // user: process.env.MYSQL_HOST,
-        // password: process.env.MYSQL_PASSWORD,
-        // database: process.env.MYSQL_DATABASE,
+        host: process.env.MYSQL_USER,
+        user: process.env.MYSQL_HOST,
+        password: process.env.MYSQL_PASSWORD,
+        database: process.env.MYSQL_DATABASE,
     }
 })
 
