@@ -1,5 +1,6 @@
 
 import React from 'react'
+import fetch from 'isomorphic-unfetch'
 import { getPosts } from '../api/controllers/fetching'
 import { PageTitle, Article } from '../../components/_index'
 
@@ -45,11 +46,5 @@ export async function getStaticProps() {
         }
     }
 }
-
-// Posts.getInitialProps = async ({ req }) => {
-//     const response = await getPosts()
-//     const json = await response.json()
-//     return { posts: json }
-// }
 
 export default Posts

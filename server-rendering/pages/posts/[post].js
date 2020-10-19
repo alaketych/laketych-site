@@ -1,9 +1,7 @@
 import React, { useState } from 'react'
-import { useRouter } from 'next/router'
 import { getPost } from '../api/controllers/fetching'
 
 function PostPage({ post }) {
-    const router = useRouter()
     const [darkTheme, setDarkTheme] = useState(false)
 
     return (
@@ -14,13 +12,13 @@ function PostPage({ post }) {
 
                 <div className="container">
                     <div className="publication__header">
-                        <h3 className="publication__published-name">Alexandr Laketych</h3>
+                        <h3 className="publication__published-name">{ post.author }</h3>
                         <h4 className="publication__published-date">27 September, 2020</h4>
                     </div>
 
                     <div className="publication__view">
                         <h3 className="publication__name">{ post.title }</h3>
-                        <p className="publication__paragraph">{ post.body }</p>
+                        <p className="publication__paragraph">{ post.content }</p>
                         <a className="publication__link" href="localhost:3000/" target="_blank" rel="noopener noreferrer">интервью</a>
                     </div>
                 </div>
