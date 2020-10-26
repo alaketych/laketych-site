@@ -3,7 +3,7 @@ import classNames from 'classnames'
 import photo from '../assets/images/a.jpg'
 import { Button } from './_index'
 
-function Project({ className }) {
+function Project({ className, photo, title, description, stack, development }) {
     return (
         <div className="project-view huge-padding">
             <div className={classNames(`project-view__${className}`)}>
@@ -12,8 +12,8 @@ function Project({ className }) {
                 </div>
 
                 <div className="substance">
-                    <h3 className="title">CMS</h3>
-                    <h3 className="description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Itaque laboriosam pariatur assumenda cupiditate alias optio at eveniet quas, mollitia distinctio quia maxime placeat iure officiis? Quibusdam quaerat dolore doloremque dolorum.</h3>
+                    <h3 className="title">{ title }</h3>
+                    <h3 className="description">{ description }</h3>
 
                     <ul className="list spacing-tiny-top">
                         <li className="item">
