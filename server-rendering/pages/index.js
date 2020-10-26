@@ -1,13 +1,14 @@
 import React from 'react'
 import dynamic from 'next/dynamic'
 import photo from '../assets/images/2.png'
+import { getPosts, getProjects } from './api/controllers/fetching'
 import { Banner, Button, Quote, Article, Service, ProjectView } from '../components/_index'
 
 dynamic(
     () => import('@lottiefiles/lottie-player'), { ssr: false }
 )
 
-function Home() {
+function Home({ projects, articles }) {
     return (
         <div className="App">
             <Banner
@@ -27,8 +28,19 @@ function Home() {
                 <div className="wrapper">
                     <h3 className="title-section">FEATURED PROJECT</h3>
                     <div className="divider"></div>
-
-                    <ProjectView className="content"/>
+                    {
+                        projects.map(project => {
+                            return(
+                                <ProjectView
+                                    key={ project.id }
+                                    title={ project.title }
+                                    description={ project.description }
+                                    className="content"
+                                    //className="content-reversed"
+                                />
+                            )
+                        })
+                    }
                 </div>
             </section>
 
@@ -81,7 +93,18 @@ function Home() {
                     <div className="divider"></div>
 
                     <div className="array huge-spacing">
-                        <Article
+                        {
+                            articles.map(article => {
+                                return (
+                                    <Article
+                                        key={ article.id }
+                                        article={ article.title }
+                                        textPreview={ article.body }
+                                    />
+                                )
+                            })
+                        }
+                        {/* <Article
                             photo={ photo }
                             article="Building GraqhQL server"
                             category="Programming"
@@ -95,7 +118,7 @@ function Home() {
                             category="Programming"
                             date="25th September, 2020"
                             textPreview="Lorem ipsum dolor sit amet, consectetur adipisicing elit. Veniam, hic eaque. Perferendis, asperiores. Iste omnis architecto modi culpa dicta, hic quasi nihil eius autem earum tempore, corporis commodi, provident fuga?"
-                        />
+                        /> */}
                     </div>
 
                     <Button
@@ -106,6 +129,21 @@ function Home() {
             </section>
         </div>
     )
+}
+
+export async function getStaticProps() {
+    const projects = await getProjects()
+    const articles = await getPosts()
+
+    const projectsJSON = await projects.json()
+    const articlesJSON = await articles.json()
+
+    return {
+        props: {
+            projects: projectsJSON,
+            articles: articlesJSON,
+        }
+    }
 }
 
 export default Home
