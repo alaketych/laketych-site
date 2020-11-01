@@ -1,4 +1,5 @@
 import React from 'react'
+import Link from 'next/link'
 import bman from '../assets/images/bman.png'
 
 function Quore({ feedback, client, company, companyURL }) {
@@ -19,7 +20,10 @@ function Quore({ feedback, client, company, companyURL }) {
                             { client }
                         </strong>
                         <p className="quote__client-company">
-                            <a className="link" href={ companyURL } target="_blank" rel="noopener noreferrer">{ company }</a>
+                        <Link href={ companyURL }>
+                            <a className="link" target="_blank" rel="noopener noreferrer">{ company }</a>
+                        </Link>
+
                         </p>
                     </cite>
             </blockquote>

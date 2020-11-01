@@ -1,19 +1,24 @@
 import React from 'react'
-import { Link } from '../routes/index'
+import Link from 'next/link'
 
-function Article({ photo, article, category, date, textPreview }) {
+function Article({ photo, article, category, publicationDate, textPreview, link }) {
     return (
-        <div className="article ">
-            <a href="/" className="article__thumb">
-                <img src={ photo } alt=""/>
-            </a>
+        <div className="article">
+            <Link href={ link }>
+                <a className="article__thumb">
+                    <img src={ photo } alt=""/>
+                </a>
+            </Link>
 
             <div className="article__inner">
-                <a href="/" className="article__title">{ article }</a>
+                <Link href={ link }>
+                    <a href="/" className="article__title">{ article }</a>
+                </Link>
+
                 <p className="article__description">
                     <a className="article__category" href="/">{ category }</a>
                     <span className="fade">/</span>
-                    { date }
+                    { publicationDate }
                 </p>
 
                 <div className="article__preview">{ textPreview }</div>
@@ -21,20 +26,5 @@ function Article({ photo, article, category, date, textPreview }) {
         </div>
     )
 }
-
-// function Article({ post }) {
-//     return (
-//         <div className="article ">
-//             <div className="article__inner">
-//                 <Link route='post' params={{ slug: post.id}}>
-//                     <a href="/" className="article__title">{ post.title }</a>
-//                 </Link>
-//                 <p className="article__description">
-//                     <a className="article__category" href="/">{ post.body }</a>
-//                 </p>
-//             </div>
-//         </div>
-//     )
-// }
 
 export default Article

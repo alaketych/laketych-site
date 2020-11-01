@@ -1,4 +1,5 @@
 import React from 'react'
+import Button from './Button'
 
 function Banner({ title, description, children }) {
     return (
@@ -9,7 +10,11 @@ function Banner({ title, description, children }) {
 
                     <h3 className="description-section">{ description }</h3>
 
-                    <button className="button big-button huge-spacing">View Projects</button>
+                    <Button
+                        className="big-button huge-spacing"
+                        label="View projects"
+                        link="/projects"
+                    />
                 </div>
 
                { children }

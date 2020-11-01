@@ -3,7 +3,7 @@ import classNames from 'classnames'
 import photo from '../assets/images/a.jpg'
 import { Button } from './_index'
 
-function Project({ className, photo, title, description, stack, development }) {
+function Project({ className, photo, title, preview, link, github_link, stack, development }) {
     return (
         <div className="project-view huge-padding">
             <div className={classNames(`project-view__${className}`)}>
@@ -13,7 +13,7 @@ function Project({ className, photo, title, description, stack, development }) {
 
                 <div className="substance">
                     <h3 className="title">{ title }</h3>
-                    <h3 className="description">{ description }</h3>
+                    <h3 className="description">{ preview }</h3>
 
                     <ul className="list spacing-tiny-top">
                         <li className="item">
@@ -35,11 +35,13 @@ function Project({ className, photo, title, description, stack, development }) {
                         <Button
                             className="foreground"
                             label="View Details"
+                            link={ link }
                         />
 
                         <Button
                             className="foreground"
                             label="View Code"
+                            link={ github_link }
                         />
                     </div>
                 </div>
