@@ -18,9 +18,13 @@ function Projects({ projects }) {
                                 <ProjectView
                                     key={ project.id }
                                     title={ project.title }
-                                    description={ project.description }
+                                    photo={ project.photo }
+                                    preview={ project.preview }
+
                                     className="content"
-                                    photo={ null }
+
+                                    link="/projects/2"
+                                    github_link={ project.githublink }
                                     //className="content-reversed"
                                 />
                             )
@@ -32,7 +36,7 @@ function Projects({ projects }) {
     )
 }
 
-export async function getStaticProps() {
+export async function getServerSideProps() {
     const response = await getProjects()
     const json = await response.json()
 
