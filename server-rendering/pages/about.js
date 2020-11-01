@@ -1,6 +1,6 @@
 import React from 'react'
-import { getPosts } from './api/controllers/fetching'
 import { PageTitle } from '../components/_index'
+import { getPosts } from './api/controllers/fetching'
 import { Article, Button } from '../components/_index'
 
 function About({ posts }) {
@@ -59,15 +59,6 @@ function About({ posts }) {
 
 
                         <h3 className="title-section small-padding">Technology stack</h3>
-
-
-
-                        <div className="array">
-                            <Button
-                                className="foreground"
-                                label="download resume"
-                            />
-                        </div>
                     </div>
                 </div>
             </section>
@@ -85,6 +76,7 @@ function About({ posts }) {
                                         key={ post.id }
                                         article={ post.title }
                                         textPreview={ post.body }
+                                        link="/posts/2"
                                     />
                                 )
                             })
@@ -94,6 +86,7 @@ function About({ posts }) {
                     <Button
                         className="foreground center"
                         label="View more posts"
+                        link="/posts"
                     />
                 </div>
             </section>

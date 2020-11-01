@@ -1,6 +1,5 @@
 import React from 'react'
 import dynamic from 'next/dynamic'
-import photo from '../assets/images/2.png'
 import { getPosts, getProjects } from './api/controllers/fetching'
 import { Banner, Button, Quote, Article, Service, ProjectView } from '../components/_index'
 
@@ -34,8 +33,13 @@ function Home({ projects, articles }) {
                                 <ProjectView
                                     key={ project.id }
                                     title={ project.title }
-                                    description={ project.description }
+                                    photo={ project.photo }
+                                    preview={ project.preview }
+
                                     className="content"
+
+                                    link="/projects/2"
+                                    github_link={ project.githublink }
                                     //className="content-reversed"
                                 />
                             )
@@ -75,6 +79,7 @@ function Home({ projects, articles }) {
                     <Button
                         className="foreground center"
                         label="Discover more"
+                        link="/about"
                     />
                 </div>
             </section>
@@ -98,32 +103,21 @@ function Home({ projects, articles }) {
                                 return (
                                     <Article
                                         key={ article.id }
+                                        link="/posts/2"
                                         article={ article.title }
                                         textPreview={ article.body }
+                                        category={ null }
+                                        publicationDate={ article.publicationDate }
                                     />
                                 )
                             })
                         }
-                        {/* <Article
-                            photo={ photo }
-                            article="Building GraqhQL server"
-                            category="Programming"
-                            date="25th September, 2020"
-                            textPreview="Lorem ipsum dolor sit amet, consectetur adipisicing elit. Veniam, hic eaque. Perferendis, asperiores. Iste omnis architecto modi culpa dicta, hic quasi nihil eius autem earum tempore, corporis commodi, provident fuga?"
-                        />
-
-                        <Article
-                            photo={ photo }
-                            article="Building GraqhQL server"
-                            category="Programming"
-                            date="25th September, 2020"
-                            textPreview="Lorem ipsum dolor sit amet, consectetur adipisicing elit. Veniam, hic eaque. Perferendis, asperiores. Iste omnis architecto modi culpa dicta, hic quasi nihil eius autem earum tempore, corporis commodi, provident fuga?"
-                        /> */}
                     </div>
 
                     <Button
                         className="foreground center"
                         label="View more posts"
+                        link="/posts"
                     />
                 </div>
             </section>
