@@ -13,7 +13,7 @@ function PostPage({ post }) {
                 <div className="container">
                     <div className="publication__header">
                         <h3 className="publication__published-name">{ post.author }</h3>
-                        <h4 className="publication__published-date">27 September, 2020</h4>
+                        <h4 className="publication__published-date">{ post.publicationDate }</h4>
                     </div>
 
                     <div className="publication__view">

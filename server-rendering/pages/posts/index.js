@@ -1,6 +1,4 @@
-
 import React from 'react'
-import fetch from 'isomorphic-unfetch'
 import { getPosts } from '../api/controllers/fetching'
 import { PageTitle, Article } from '../../components/_index'
 
@@ -17,14 +15,17 @@ function Posts({ posts }) {
                     <h3 className="title-section spacing-tiny-top">FEATURED PROJECT</h3>
                     <div className="divider"></div>
 
-                    <div className="array wrap small-spacing">
+                    <div className="array wrap small-padding">
                         {
                             posts.map(post => {
                                 return (
                                     <Article
                                         key={ post.id }
                                         article={ post.title }
-                                        textPreview={ post.body }
+                                        textPreview={ post.content }
+                                        link="/posts/2"
+                                        category={ null }
+                                        publicationDate={ post.publicationDate }
                                     />
                                 )
                             })
