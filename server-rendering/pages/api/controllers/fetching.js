@@ -7,3 +7,11 @@ export function getPosts() {
 export function getPost(slug) {
     return fetch(`http://localhost:3000/api/posts/${slug}`)
 }
+
+export function getProjects() {
+    return fetch('http://localhost:3000/api/projects')
+}
+
+export function getProject(slug) {
+    return fetch(`http://localhost:3000/api/projects/${slug}`)
+}
