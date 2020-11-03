@@ -38,7 +38,7 @@ function Home({ projects, articles }) {
 
                                     className="content"
 
-                                    link="/projects/2"
+                                    link="2"
                                     github_link={ project.githublink }
                                     //className="content-reversed"
                                 />
@@ -103,7 +103,7 @@ function Home({ projects, articles }) {
                                 return (
                                     <Article
                                         key={ article.id }
-                                        link="/posts/2"
+                                        link="2"
                                         article={ article.title }
                                         textPreview={ article.body }
                                         category={ null }

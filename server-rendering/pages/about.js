@@ -70,13 +70,14 @@ function About({ posts }) {
 
                     <div className="array huge-spacing">
                         {
-                            posts.map(post => {
+                            posts.map(article => {
                                 return (
                                     <Article
-                                        key={ post.id }
-                                        article={ post.title }
-                                        textPreview={ post.body }
+                                        key={ article.id }
+                                        article={ article.title }
+                                        textPreview={ article.body }
                                         link="/posts/2"
+                                        publicationDate={ article.publicationDate }
                                     />
                                 )
                             })
