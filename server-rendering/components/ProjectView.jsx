@@ -1,6 +1,5 @@
 import React from 'react'
 import classNames from 'classnames'
-import photo from '../assets/images/a.jpg'
 import { Button } from './_index'
 
 function Project({ className, photo, title, preview, link, github_link, stack, development }) {
@@ -35,7 +34,7 @@ function Project({ className, photo, title, preview, link, github_link, stack, d
                         <Button
                             className="foreground"
                             label="View Details"
-                            link={ link }
+                            link={ `/projects/${ link }` }
                         />
 
                         <Button

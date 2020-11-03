@@ -4,14 +4,14 @@ import Link from 'next/link'
 function Article({ photo, article, category, publicationDate, textPreview, link }) {
     return (
         <div className="article">
-            <Link href={ link }>
+            <Link href={ `/posts/${ link }` }>
                 <a className="article__thumb">
                     <img src={ photo } alt=""/>
                 </a>
             </Link>
 
             <div className="article__inner">
-                <Link href={ link }>
+                <Link href={ `/posts/${ link }` }>
                     <a href="/" className="article__title">{ article }</a>
                 </Link>
 

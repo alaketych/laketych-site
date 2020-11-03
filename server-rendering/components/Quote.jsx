@@ -1,6 +1,6 @@
 import React from 'react'
 import Link from 'next/link'
-import bman from '../assets/images/bman.png'
+// import bman from '../assets/images/bman.png'
 
 function Quore({ feedback, client, company, companyURL }) {
     return (
@@ -15,7 +15,7 @@ function Quore({ feedback, client, company, companyURL }) {
                     </div>
 
                     <cite className="quote__meta">
-                        <img className="quote__avatar" src={ bman } alt="feedback" />
+                        {/* <img className="quote__avatar" src={ bman } alt="feedback" /> */}
                         <strong className="quote__client-name">
                             { client }
                         </strong>
