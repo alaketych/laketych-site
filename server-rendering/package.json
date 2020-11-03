@@ -6,7 +6,11 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "server": "nodemon server.js"
+    "server": "nodemon server.js",
+
+    "orm": "prisma studio --experimental",
+    "orm-save": "prisma migrate save --experimental",
+    "orm-update": "prisma generate"
   },
   "dependencies": {
     "@lottiefiles/lottie-player": "^0.5.1",
