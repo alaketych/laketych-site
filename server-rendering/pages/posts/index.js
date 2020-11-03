@@ -1,5 +1,6 @@
 import React from 'react'
 import { getPosts } from '../api/controllers/fetching'
+import { PrismaClient } from '@prisma/client'
 import { PageTitle, Article } from '../../components/_index'
 
 function Posts({ posts }) {
@@ -19,11 +20,19 @@ function Posts({ posts }) {
                         {
                             posts.map(post => {
                                 return (
+                                    // <Article
+                                    //     key={ post.id }
+                                    //     article={ post.title }
+                                    //     textPreview={ post.content }
+                                    //     link="2"
+                                    //     category={ null }
+                                    //     publicationDate={ post.publicationDate }
+                                    // />
                                     <Article
                                         key={ post.id }
                                         article={ post.title }
                                         textPreview={ post.content }
-                                        link="2"
+                                        link="1"
                                         category={ null }
                                         publicationDate={ post.publicationDate }
                                     />
@@ -38,12 +47,12 @@ function Posts({ posts }) {
 }
 
 export async function getStaticProps() {
-    const response = await getPosts()
-    const json = await response.json()
+    const prisma = new PrismaClient()
+    const posts = await prisma.post.findMany()
 
     return {
         props: {
-            posts: json
+            posts
         }
     }
 }
