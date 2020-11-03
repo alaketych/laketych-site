@@ -23,7 +23,7 @@ function Projects({ projects }) {
 
                                     className="content"
 
-                                    link="/projects/2"
+                                    link="2"
                                     github_link={ project.githublink }
                                     //className="content-reversed"
                                 />
@@ -36,7 +36,7 @@ function Projects({ projects }) {
     )
 }
 
-export async function getServerSideProps() {
+export async function getStaticProps() {
     const response = await getProjects()
     const json = await response.json()
 
