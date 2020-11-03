@@ -23,7 +23,7 @@ function Posts({ posts }) {
                                         key={ post.id }
                                         article={ post.title }
                                         textPreview={ post.content }
-                                        link="/posts/2"
+                                        link="2"
                                         category={ null }
                                         publicationDate={ post.publicationDate }
                                     />
