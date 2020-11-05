@@ -107,7 +107,6 @@ function Home({ projects, articles }) {
                                         article={ article.title }
                                         textPreview={ article.body }
                                         category={ null }
-                                        publicationDate={ article.publicationDate }
                                     />
                                 )
                             })
