@@ -1,5 +1,5 @@
 import React from 'react'
-import { getProjects } from '../api/controllers/fetching'
+import { PrismaClient } from '@prisma/client'
 import { PageTitle, ProjectView } from '../../components/_index'
 
 function Projects({ projects }) {
@@ -37,12 +37,12 @@ function Projects({ projects }) {
 }
 
 export async function getStaticProps() {
-    const response = await getProjects()
-    const json = await response.json()
+    const prisma = new PrismaClient()
+    const projects = await prisma.project.findMany()
 
     return {
         props: {
-            projects: json
+            projects
         }
     }
 }

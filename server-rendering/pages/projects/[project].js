@@ -1,5 +1,5 @@
 import React from 'react'
-import { getProject } from '../api/controllers/fetching'
+import { PrismaClient } from '@prisma/client'
 import { PageTitle, Button } from '../../components/_index'
 
 function ProjectPage({ project }) {
@@ -34,12 +34,16 @@ function ProjectPage({ project }) {
 }
 
 export async function getServerSideProps({ query }) {
-    const response = await getProject(query.project)
-    const json = await response.json()
+    const prisma = new PrismaClient()
+    const project = await prisma.project.findOne({
+        where: {
+            id: Number(query.project)
+        }
+    })
 
     return {
         props: {
-            project: json[0]
+            project
         }
     }
 }
