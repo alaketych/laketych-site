@@ -1,5 +1,5 @@
 import React from 'react'
-import { PageTitle, ContactingForm, SendingMessage, Service } from '../components/_index'
+import { PageTitle, ContactingForm, Service } from '../components/_index'
 
 function Contact() {
     return (
