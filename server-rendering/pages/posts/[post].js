@@ -1,6 +1,5 @@
 import React, { useState } from 'react'
 import { PrismaClient } from '@prisma/client'
-import { getPost } from '../api/controllers/fetching'
 
 function PostPage({ post }) {
     const [darkTheme, setDarkTheme] = useState(false)
@@ -11,28 +10,15 @@ function PostPage({ post }) {
                 <div className="publication__up">
                 </div>
 
-                {/* <div className="container">
+                <div className="container">
                     <div className="publication__header">
                         <h3 className="publication__published-name">{ post.author }</h3>
-                        <h4 className="publication__published-date">{ post.publicationDate }</h4>
+                        {/* <h4 className="publication__published-date">{ post.publicationDate }</h4> */}
                     </div>
 
                     <div className="publication__view">
                         <h3 className="publication__name">{ post.title }</h3>
                         <p className="publication__paragraph">{ post.content }</p>
-                        <a className="publication__link" href="localhost:3000/" target="_blank" rel="noopener noreferrer">интервью</a>
-                    </div>
-                </div> */}
-
-                <div className="container">
-                    <div className="publication__header">
-                        <h3 className="publication__published-name">{ post.author }</h3>
-                        <h4 className="publication__published-date">{ post.publicationDate }</h4>
-                    </div>
-
-                    <div className="publication__view">
-                        <h3 className="publication__name">{ post.title }</h3>
-                        <p className="publication__paragraph">{ post.excerpt }</p>
                         <a className="publication__link" href="localhost:3000/" target="_blank" rel="noopener noreferrer">интервью</a>
                     </div>
                 </div>
@@ -62,13 +48,11 @@ function PostPage({ post }) {
 
 export async function getServerSideProps({ query }) {
     const prisma = new PrismaClient()
-    const post = await prisma.post.findOne({
+    const post = await prisma.article.findOne({
         where: {
             id: Number(query.post)
         }
     })
-
-    console.log(post)
 
     return {
         props: {
