@@ -7,10 +7,10 @@
     "build": "next build",
     "start": "next start",
     "server": "nodemon server.js",
-
-    "orm": "prisma studio --experimental",
+    "orm": "prisma studio",
     "orm-save": "prisma migrate save --experimental",
-    "orm-update": "prisma generate"
+    "orm-update": "prisma migrate up --experimental",
+    "orm-generate": "prisma generate"
   },
   "dependencies": {
     "@lottiefiles/lottie-player": "^0.5.1",
@@ -24,13 +24,9 @@
     "next-images": "^1.6.0",
     "next-routes": "^1.4.2",
     "node-sass": "^4.14.1",
-    "pure-react-carousel": "^1.27.5",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
     "react-json-view": "^1.19.1",
-    "react-lottie": "^1.2.3",
-    "react-lottie-player": "^1.0.2",
-    "react-responsive-carousel": "^3.2.10",
     "serverless-mysql": "^1.5.4",
     "sql-template-strings": "^2.2.2",
     "yup": "^0.29.3"
