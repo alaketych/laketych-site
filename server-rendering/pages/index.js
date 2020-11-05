@@ -1,6 +1,6 @@
 import React from 'react'
 import dynamic from 'next/dynamic'
-import { getPosts, getProjects } from './api/controllers/fetching'
+import { PrismaClient } from '@prisma/client'
 import { Banner, Button, Quote, Article, Service, ProjectView } from '../components/_index'
 
 dynamic(
@@ -126,16 +126,15 @@ function Home({ projects, articles }) {
 }
 
 export async function getStaticProps() {
-    const projects = await getProjects()
-    const articles = await getPosts()
+    const prisma = new PrismaClient()
 
-    const projectsJSON = await projects.json()
-    const articlesJSON = await articles.json()
+    const articles = await prisma.article.findMany({})
+    const projects = await prisma.project.findMany({})
 
     return {
         props: {
-            projects: projectsJSON,
-            articles: articlesJSON,
+            articles,
+            projects
         }
     }
 }
