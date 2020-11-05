@@ -30,7 +30,7 @@ function Project({ className, photo, title, preview, link, github_link, stack, d
                         </li>
                     </ul>
 
-                    <div className="spacing-tiny-top">
+                    <div className="array">
                         <Button
                             className="foreground"
                             label="View Details"
