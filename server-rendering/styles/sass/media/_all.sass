@@ -1,0 +1,62 @@
+@import 'elements'
+@import 'spacing'
+@import 'breakpoints'
+
+@media only screen and (max-width: $breakpoint-mobile)
+    .wrapper
+        max-width: 85%
+
+    .header
+        display: none
+
+    .banner, .block
+        text-align: center
+
+        .project-view
+            display: flex
+            justify-content: center
+
+            &__content
+                flex-direction: column
+
+            .overlay
+                width: 90%
+                padding: 0px
+                margin-bottom: 10px
+
+            &__layout
+                margin-bottom: 0px
+
+            .substance
+                margin: 0px
+                width: 100%
+
+                .array
+                    display: flex
+                    flex-direction: row
+                    justify-content: space-between
+                    padding-top: 15px
+
+        .service
+            width: 100%
+            margin-bottom: 25px
+
+            .title
+                margin: 10px 0px 13px
+                font-size: 18px
+
+        .array
+            display: flex
+            flex-direction: column
+
+            .article
+                width: 100% 
+
+        form
+            width: 90%
+
+        footer
+            font-size: 10px
+
+@media only screen and ( max-width: $breakpoint-medium)
+    .header

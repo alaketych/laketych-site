@@ -1,0 +1,78 @@
+@import 'breakpoints'
+
+@media only screen and (max-width: $breakpoint-mobile)
+    .slanted-top
+        clip-path: polygon(0 0, 100% 44px, 100% 100%, 0 100%)
+
+    .slanted-bottom
+        clip-path: polygon(0 0, 100% 0, 100% 90%, 0 calc(100% - 60px))
+
+    .slanted-both-sides
+        clip-path: polygon(0 0, 100% 44px, 100% 100%, 0 calc(100% - 44px))
+
+    .link
+        font-size: 15px
+    
+    .super-title
+        font-size: 35px
+
+    .title-section
+        font-size: 17px
+
+    .description-section
+        font-size: 21px
+    
+    .title
+        font-size: 30px
+
+    .description
+        font-size: 17px
+
+    .text-large
+        font-size: 13px
+
+    .doc
+        padding: 5px 10px
+
+    .button
+        margin: 0 auto
+        font-size: 18px
+        padding: 13px 20px
+
+    .item
+        margin: 0px 0px 15px
+
+        .item__img
+            max-width: 15px
+            max-height: 15px
+            margin-right: 15px
+
+        .link
+            font-size: 13px
+
+    .quote
+        .quote__inner
+            padding: 10px 0px
+
+            &::after, &::before
+                width: 30px;
+                height: 3px;
+                
+        p
+            font-size: 27px
+
+        .quote__client-name
+            font-size: 17px
+
+        .quote__client-company
+            font-size: 15px
+    
+    .article
+        .article__title
+            font-size: 16px
+            
+        .article__description
+            font-size: 10px
+            
+        .article__preview
+            font-size: 12px
