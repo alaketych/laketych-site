@@ -1,6 +1,6 @@
+import { PrismaClient } from '@prisma/client'
 import React from 'react'
 import { PageTitle } from '../components/_index'
-import { getPosts } from './api/controllers/fetching'
 import { Article, Button } from '../components/_index'
 
 function About({ posts }) {
@@ -96,12 +96,12 @@ function About({ posts }) {
 }
 
 export async function getStaticProps() {
-    const response = await getPosts()
-    const json = await response.json()
+    const prisma = new PrismaClient()
+    const posts = await prisma.article.findMany({})
 
     return {
         props: {
-            posts: json
+            posts
         }
     }
 }
