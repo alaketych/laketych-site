@@ -13,6 +13,9 @@
     "orm-generate": "prisma generate"
   },
   "dependencies": {
+    "@fortawesome/fontawesome-svg-core": "^1.2.32",
+    "@fortawesome/free-solid-svg-icons": "^5.15.1",
+    "@fortawesome/react-fontawesome": "^0.1.12",
     "@lottiefiles/lottie-player": "^0.5.1",
     "@prisma/client": "^2.10.1",
     "@zeit/next-sass": "^1.0.1",
