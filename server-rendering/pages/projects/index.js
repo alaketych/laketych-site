@@ -23,7 +23,7 @@ function Projects({ projects }) {
 
                                     className="content"
 
-                                    link="2"
+                                    link={ project.id }
                                     github_link={ project.githublink }
                                     //className="content-reversed"
                                 />
