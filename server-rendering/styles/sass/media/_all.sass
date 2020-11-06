@@ -7,7 +7,13 @@
         max-width: 85%
 
     .header
-        display: none
+        padding: 0px
+
+        .logo
+            display: none
+
+        .navigation
+            display: none
 
     .banner, .block
         text-align: center
@@ -122,5 +128,11 @@
             width: 100%
 
 @media only screen and (max-width: $breakpoint-tablet)
-    header
-        display: none
+    .wrapper
+        max-width: 95%
+
+    .project-view
+        .overlay
+            background: transparent
+        &__layout
+            width: 125%
