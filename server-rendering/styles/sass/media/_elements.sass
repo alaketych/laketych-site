@@ -12,7 +12,7 @@
 
     .link
         font-size: 15px
-    
+
     .super-title
         font-size: 35px
 
@@ -21,9 +21,10 @@
 
     .description-section
         font-size: 21px
-    
+
     .title
         font-size: 30px
+        margin: 0 auto
 
     .description
         font-size: 17px
@@ -35,6 +36,7 @@
         padding: 5px 10px
 
     .button
+        border-radius: 9px
         margin: 0 auto
         font-size: 18px
         padding: 13px 20px
@@ -55,9 +57,12 @@
             padding: 10px 0px
 
             &::after, &::before
-                width: 30px;
-                height: 3px;
-                
+                width: 30px
+                height: 3px
+
+        .quote__meta
+            margin-top: 30px
+
         p
             font-size: 27px
 
@@ -66,13 +71,50 @@
 
         .quote__client-company
             font-size: 15px
-    
+
     .article
         .article__title
             font-size: 16px
-            
+
         .article__description
             font-size: 10px
-            
+
         .article__preview
             font-size: 12px
+
+@media only screen and (max-width: $breakpoint-medium)
+    .slanted-top
+        clip-path: polygon(0 0, 100% 40px, 100% 100%, 0 100%)
+
+    .slanted-bottom
+        clip-path: polygon(0 0, 100% 0, 100% 90%, 0 calc(100% - 75px))
+
+    .slanted-both-sides
+        clip-path: polygon(0 0, 100% 40px, 100% 100%, 0 calc(100% - 40px))
+
+    .title
+        font-size: 32px
+        margin: 0 auto
+
+    .description
+        font-size: 20px
+
+    .link
+        font-size: 18px
+
+    .quote
+        .quote__inner
+            padding: 10px 0px
+
+            &::after, &::before
+                width: 50px
+                height: 3px
+
+        .quote__meta
+            margin-top: 30px
+
+        p
+            font-size: 27px
+
+        .quote__client-name
+            font-size: 15px
