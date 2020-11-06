@@ -21,9 +21,9 @@ function Posts({ posts }) {
                                 return (
                                     <Article
                                         key={ post.id }
+                                        link={ post.id }
                                         article={ post.title }
                                         textPreview={ post.content }
-                                        link="1"
                                         category={ null }
                                     />
                                 )
