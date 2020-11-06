@@ -1,5 +1,6 @@
 import React from 'react'
 import Link from 'next/link'
+import { Menu, SideMenu, BottomMenu } from './Menu/_index'
 
 function Header() {
     return (
@@ -11,32 +12,11 @@ function Header() {
                     </Link>
                 </div>
 
-                <ul className="navigation">
-                    <li className="item">
-                        <Link href='/projects'>
-                            <a className="link">Projects</a>
-                        </Link>
-                    </li>
-
-                    <li className="item">
-                        <Link href='/about'>
-                            <a className="link">About</a>
-                        </Link>
-                    </li>
-
-                    <li className="item">
-                        <Link href='/contact'>
-                            <a className="link">Contact</a>
-                        </Link>
-                    </li>
-
-                    <li className="item">
-                        <Link href='/posts'>
-                            <a className="link">Blog</a>
-                        </Link>
-                    </li>
-                </ul>
+                <Menu />
+                <SideMenu />
             </div>
+
+            <BottomMenu />
         </header>
     )
 }
