@@ -1,7 +1,7 @@
 import React from 'react'
 import Link from 'next/link'
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
-import { faNewspaper, faMusic, faFolder, faAddressCard } from "@fortawesome/free-solid-svg-icons"
+import { faNewspaper, faFolder, faAddressCard, faInfoCircle } from "@fortawesome/free-solid-svg-icons"
 
 function BottomMenu() {
     return (
@@ -14,7 +14,7 @@ function BottomMenu() {
 
             <li className="menu-item">
                 <Link href='/about'>
-                    <FontAwesomeIcon icon={ faMusic }></FontAwesomeIcon>
+                    <FontAwesomeIcon icon={ faInfoCircle }></FontAwesomeIcon>
                 </Link>
             </li>
 
