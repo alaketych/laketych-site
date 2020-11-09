@@ -1,0 +1,19 @@
+{
+  "version": "0.3.14-fixed",
+  "steps": [
+    {
+      "tag": "CreateField",
+      "model": "Article",
+      "field": "categories",
+      "type": "ArticleCategory",
+      "arity": "List"
+    },
+    {
+      "tag": "CreateField",
+      "model": "Category",
+      "field": "articles",
+      "type": "ArticleCategory",
+      "arity": "List"
+    }
+  ]
+}

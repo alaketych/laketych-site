@@ -1,0 +1,72 @@
+datasource db {
+  provider = "sqlite"
+  url      = "file:./blog.db"
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+model Article {
+  id Int @id @default(autoincrement())
+  author String
+  title String
+  content String
+  photo String
+  categories ArticleCategory[]
+}
+
+model Category {
+  id Int @id @default(autoincrement())
+  label String
+  articles ArticleCategory[]
+}
+
+model ArticleCategory {
+  article Article @relation(fields: [articleId], references: [id])
+  articleId Int
+
+  category Category @relation(fields: [categoryId], references: [id])
+  categoryId Int
+
+  @@id([articleId, categoryId])
+}
+
+model Project {
+  id Int @id @default(autoincrement())
+  title String
+  preview String
+  description String
+  githublink String
+  photo String
+}
+
+model Stack {
+  id Int @id @default(autoincrement())
+  label String
+}
+
+model Development {
+  id Int @id @default(autoincrement())
+  label String
+}
+
+model ProjectStack {
+  project Project @relation(fields: [projectId], references: [id])
+  projectId Int
+
+  stack Stack @relation(fields: [stackId], references: [id])
+  stackId Int
+
+  @@id([projectId, stackId])
+}
+
+model ProjectDevelopment {
+  project Project  @relation(fields: [projectId], references: [id])
+  projectId Int
+
+  development Development @relation(fields: [developmentId], references: [id])
+  developmentId Int
+
+  @@id([projectId, developmentId])
+}

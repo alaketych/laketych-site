@@ -13,11 +13,13 @@ model Article {
   title String
   content String
   photo String
+  categories ArticleCategory[]
 }
 
 model Category {
   id Int @id @default(autoincrement())
   label String
+  articles ArticleCategory[]
 }
 
 model ArticleCategory {
